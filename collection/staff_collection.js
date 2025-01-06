@@ -1,7 +1,8 @@
 var Staff=require("../model/staff_schema")
 
 
-const savestaff=(req,res)=>{
+const savestaff=async(req,res)=>{
+    console.log(req.body)
     let data = new Staff({
         name : req.body.name,
         department : req.body.department,
@@ -10,7 +11,7 @@ const savestaff=(req,res)=>{
         password : req.body.password,
         image : null
     })
-    data.save()
+    await data.save()
     .then((result)=>{
         res.status(200).json({
             msg : "registered successfully",
