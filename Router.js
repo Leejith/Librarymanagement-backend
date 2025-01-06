@@ -6,6 +6,6 @@ const staff_controller=require("./collection/staff_collection")
 route.post("/savestudent",controller.savestudent)
 
 
-route.post("/savestaff",staff_controller.savestaff)
+route.post("/savestaff",staff_controller.upload,staff_controller.savestaff)
 
 module.exports=route
