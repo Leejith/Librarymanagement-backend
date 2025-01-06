@@ -21,7 +21,7 @@ const savestudent = (req, res) => {
     regno: req.body.regno,
     email: req.body.email,
     password: req.body.password,
-    image: req.image,
+    image: req.file,
   });
   console.log(data);
   data
@@ -41,4 +41,27 @@ const savestudent = (req, res) => {
     });
 };
 
-module.exports = { savestudent ,upload };
+const LoginStudent =async (req, res) => {
+  const { email } = req.body;
+  const { password } = req.body;
+
+  const student =await Student.findOne({ email });
+  if (!student) {
+    res.status(400).json({
+      msg: "incorrect email",
+      status: 400,
+    });
+  } else {
+    if (student.password != password) {
+      res.status(400).json({
+        msg: "incorrect password",
+      });
+    } else {
+      res.status(200).json({
+        msg: "login successfully",
+        data: student,
+      });
+    }
+  }
+};
+module.exports = { savestudent, upload, LoginStudent };

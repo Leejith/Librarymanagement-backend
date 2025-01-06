@@ -4,6 +4,7 @@ const controller=require("./collection/Student_collection")
 const staff_controller=require("./collection/staff_collection")
 
 route.post("/savestudent",controller.upload,controller.savestudent)
+route.post("/loginstudent",controller.LoginStudent)
 
 
 route.post("/savestaff",staff_controller.upload,staff_controller.savestaff)
