@@ -18,7 +18,7 @@ const savestaff=async(req,res)=>{
     let data = new Staff({
         name : req.body.name,
         department : req.body.department,
-        regno : req.body.regno,
+        idno : req.body.idno,
         email : req.body.email,
         password : req.body.password,
         image : req.file
@@ -39,5 +39,30 @@ const savestaff=async(req,res)=>{
     })
 }
 
+const staff_login = async (req,res)=>{
+    const {email} = req.body
+    const {password} = req.body
+    const user = await Staff.findOne({email})
 
-module.exports={savestaff,upload}
+    if(!user){
+        res.status(400).json({
+            msg : "Email not found"
+    })
+}
+    else{
+        if(user.password != password){
+            res.status(400).json({
+                msg:"Incorrect password"
+            })
+        }
+        else{
+            res.status(200).json({
+                msg:"Logged In Successfully",
+                data:user
+            })
+        }
+    }
+}
+
+
+module.exports={savestaff,upload,staff_login}

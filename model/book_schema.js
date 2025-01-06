@@ -1,7 +1,7 @@
 var mongoose=require("mongoose")
 
 var Book_schema = new mongoose.Schema({
-    name:{
+    booktitle:{
         type:String,
         require:true
     },
@@ -9,13 +9,20 @@ var Book_schema = new mongoose.Schema({
         type:String,
         require:true
     },
-    category:{
+    genre:{
         type:String,
         require:true
     },
     description:{
         type:String,
         require:true
+    },
+    date:{
+        type:String,
+        require:true
+    },
+    image:{
+        type:Object
     }
 })
 
