@@ -9,7 +9,7 @@ var Staff_schema = new mongoose.Schema({
         type:String,
         required:true
     },
-    regno:{
+    idno:{
         type:Number,
         required:true
     },
