@@ -64,4 +64,21 @@ const LoginStudent =async (req, res) => {
     }
   }
 };
-module.exports = { savestudent, upload, LoginStudent };
+
+const StudentList=(req,res)=>{
+    Student.find()
+    .then((result)=>{
+        res.status(200).json({
+            msg:"sucess",
+            data:result
+        })
+        
+    })
+    .catch((err)=>{
+        res.status(500).json({
+            msg:"failed",
+            status:500
+        })
+    })
+}
+module.exports = { savestudent, upload, LoginStudent,StudentList };
