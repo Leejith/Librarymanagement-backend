@@ -37,5 +37,22 @@ const savebook=(req,res)=>{
     })
 }
 
+const booklist=(req,res)=>{
+    Book.find()
+    .then((result)=>{
+        res.status(200).json({
+            msg:"success",
+            status:200,
+            data:result
+        })
+    })
+    .catch((err)=>{
+        res.status(500).json({
+            msg:"success",
+            status:500
+        })
+    })
+}
 
-module.exports={savebook,upload}
+
+module.exports={savebook,upload,booklist}

@@ -11,6 +11,9 @@ route.get("/studentlist",controller.StudentList)
 
 route.post("/savestaff",staff_controller.upload,staff_controller.savestaff)
 route.post("/stafflogin",staff_controller.staff_login)
+route.get("/stafflist",staff_controller.stafflist)
 
 route.post("/savebook",book_controller.upload,book_controller.savebook)
+route.get("/booklist",book_controller.booklist)
+
 module.exports=route

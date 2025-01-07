@@ -18,7 +18,7 @@ var Book_schema = new mongoose.Schema({
         require:true
     },
     date:{
-        type:String,
+        type:Date,
         require:true
     },
     image:{
