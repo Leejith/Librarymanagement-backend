@@ -64,5 +64,21 @@ const staff_login = async (req,res)=>{
     }
 }
 
+const stafflist=(req,res)=>{
+    Staff.find()
+    .then((result)=>{
+        res.status(200).json({
+            msg:"success",
+            data : result
+        })
+    })
+    .catch((err)=>{
+        res.status(500).json({
+            msg:"failed",
+            status : 500
+        })
+    })
+}
 
-module.exports={savestaff,upload,staff_login}
+
+module.exports={savestaff,upload,staff_login,stafflist}
