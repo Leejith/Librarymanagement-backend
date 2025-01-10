@@ -81,4 +81,10 @@ const StudentList=(req,res)=>{
         })
     })
 }
+
+const studentUpate=(req,res)=>{
+    const {id}=req.params
+    const {name,department,password,image}=req.body
+    Student.findByIdAndUpdate(id,{name})
+}
 module.exports = { savestudent, upload, LoginStudent,StudentList };

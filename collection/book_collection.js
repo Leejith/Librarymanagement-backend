@@ -48,11 +48,12 @@ const booklist=(req,res)=>{
     })
     .catch((err)=>{
         res.status(500).json({
-            msg:"success",
+            msg:"failed",
             status:500
         })
     })
 }
+
 
 const viewbook=async(req,res)=>{
     const {id} = req.params
@@ -91,4 +92,8 @@ const removebook=(req,res)=>{
 }
 
 
-module.exports={savebook,upload,booklist,removebook,viewbook}
+
+
+module.exports={savebook,upload,booklist,viewBook,removebook}
+
+
