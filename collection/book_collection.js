@@ -54,6 +54,25 @@ const booklist=(req,res)=>{
     })
 }
 
+const viewbook=async(req,res)=>{
+    const {id} = req.params
+    await Book.findById(id)
+    .then((result)=>{
+        res.status(200).json({
+            msg:"viewed successfully",
+            status:200,
+            data:result
+        })
+    })
+    .catch((err)=>{
+        res.status(500).json({
+            msg:"failed",
+            status:500
+        })
+    })
+}
+
+
 const removebook=(req,res)=>{
     const {id} = req.params
     Book.findByIdAndDelete(id)
@@ -72,4 +91,4 @@ const removebook=(req,res)=>{
 }
 
 
-module.exports={savebook,upload,booklist,removebook}
+module.exports={savebook,upload,booklist,removebook,viewbook}
