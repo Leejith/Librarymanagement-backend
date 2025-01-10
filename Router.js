@@ -7,6 +7,7 @@ const book_controller=require("./collection/book_collection")
 route.post("/savestudent",controller.upload,controller.savestudent)
 route.post("/loginstudent",controller.LoginStudent)
 route.get("/studentlist",controller.StudentList)
+route.get("/studentprofile/:id",controller.Studentprofile)
 
 
 route.post("/savestaff",staff_controller.upload,staff_controller.savestaff)

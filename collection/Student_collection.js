@@ -65,6 +65,22 @@ const LoginStudent =async (req, res) => {
   }
 };
 
+const Studentprofile=async(req,res)=>{
+  const {id}=req.params
+  await Student.findById(id)
+  .then((result)=>{
+      res.status(200).json({
+          msg:"sucess",
+          data:result
+      })
+  })
+  .catch((err)=>{
+      res.status(500).json({
+          msg:"failed",
+          status:500
+      })
+  })
+}
 const StudentList=(req,res)=>{
     Student.find()
     .then((result)=>{
@@ -87,4 +103,4 @@ const studentUpate=(req,res)=>{
     const {name,department,password,image}=req.body
     Student.findByIdAndUpdate(id,{name})
 }
-module.exports = { savestudent, upload, LoginStudent,StudentList };
+module.exports = { savestudent, upload, LoginStudent,Studentprofile,StudentList };
