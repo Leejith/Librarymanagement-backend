@@ -24,6 +24,11 @@ var Book_schema = new mongoose.Schema({
     image:{
         type:Object
     }
+    ,bookstatus:{
+        type:String,
+        default:"pending",
+        enum:["pending","accepted"]
+    }
 })
 
 module.exports = new mongoose.model("book",Book_schema)
