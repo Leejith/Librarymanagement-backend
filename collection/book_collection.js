@@ -94,6 +94,6 @@ const removebook=(req,res)=>{
 
 
 
-module.exports={savebook,upload,booklist,viewBook,removebook}
+module.exports={savebook,upload,booklist,removebook,viewbook}
 
 
