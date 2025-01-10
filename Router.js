@@ -15,11 +15,9 @@ route.get("/stafflist",staff_controller.stafflist)
 
 route.post("/savebook",book_controller.upload,book_controller.savebook)
 route.get("/booklist",book_controller.booklist)
-
 route.get("/viewbook/:id",book_controller.viewBook)
-
 route.post("/removebook/:id",book_controller.removebook)
-route.get("/viewbook/:id",book_controller.viewbook)
+
 
 
 module.exports=route
