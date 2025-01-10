@@ -19,6 +19,7 @@ route.get("/booklist",book_controller.booklist)
 route.get("/viewbook/:id",book_controller.viewBook)
 
 route.post("/removebook/:id",book_controller.removebook)
+route.get("/viewbook/:id",book_controller.viewbook)
 
 
 module.exports=route

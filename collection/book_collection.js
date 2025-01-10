@@ -54,12 +54,13 @@ const booklist=(req,res)=>{
     })
 }
 
-const viewBook=(req,res)=>{
-    const {id}=req.params
-    Book.findById(id)
+
+const viewbook=async(req,res)=>{
+    const {id} = req.params
+    await Book.findById(id)
     .then((result)=>{
         res.status(200).json({
-            msg:"success",
+            msg:"viewed successfully",
             status:200,
             data:result
         })
@@ -71,6 +72,7 @@ const viewBook=(req,res)=>{
         })
     })
 }
+
 
 const removebook=(req,res)=>{
     const {id} = req.params
@@ -91,5 +93,7 @@ const removebook=(req,res)=>{
 
 
 
+
 module.exports={savebook,upload,booklist,viewBook,removebook}
+
 
