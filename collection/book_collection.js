@@ -9,7 +9,7 @@ const storage = multer.diskStorage({
         cb(null,file.originalname)
     }
 })
-const upload=multer({storage:storage}).single("file")
+const upload = multer({ storage: storage }).single("file");
 
 const savebook=(req,res)=>{
     let data = new Book({
@@ -18,7 +18,8 @@ const savebook=(req,res)=>{
         genre : req.body.genre,
         description : req.body.description,
         date : req.body.date,
-        image : req.file
+        image: req.file
+        
 
     })
     data.save()
