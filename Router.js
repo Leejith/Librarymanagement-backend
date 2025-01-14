@@ -14,6 +14,7 @@ route.get("/studentprofile/:id",controller.Studentprofile)
 route.post("/savestaff",staff_controller.upload,staff_controller.savestaff)
 route.post("/stafflogin",staff_controller.staff_login)
 route.get("/stafflist",staff_controller.stafflist)
+route.get("/staffprofile/:id",staff_controller.Staffprofile)
 
 route.post("/savebook",book_controller.upload,book_controller.savebook)
 route.get("/booklist",book_controller.booklist)
