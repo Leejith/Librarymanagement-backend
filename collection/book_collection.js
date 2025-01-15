@@ -92,9 +92,75 @@ const removebook=(req,res)=>{
     })
 }
 
+const bookCount = async (req, res) => {
+    try {
+        // Total number of books
+        const totalBooks = await Book.countDocuments();
+
+        // Count of books by category (genre)
+        const categoryCount = await Book.aggregate([
+            {
+                $group: {
+                    _id: "$genre", // Group by genre
+                    count: { $sum: 1 } // Count the number of books in each genre
+                }
+            }
+        ]);
+
+        res.status(200).json({
+            totalBooks,
+            categoryCount
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({
+            msg: "Error fetching book stats",
+            status: 500
+        });
+    }
+};
+
+const similarBooks = (req, res) => {
+    const { genre } = req.params; 
+    Book.find({ genre })
+        .limit(4) 
+        .then((books) => {
+            res.status(200).json({
+                msg: "Fetched similar books successfully",
+                status: 200,
+                data: books,
+            });
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).json({
+                msg: "Failed to fetch similar books",
+                status: 500,
+            });
+        });
+};
+
+const latestBooks = (req, res) => {
+    Book.find()
+        .sort({ date: -1 }) 
+        .limit(4) 
+        .then((books) => {
+            res.status(200).json({
+                msg: "Fetched latest books successfully",
+                status: 200,
+                data: books,
+            });
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).json({
+                msg: "Failed to fetch latest books",
+                status: 500,
+            });
+        });
+};
 
 
-
-module.exports={savebook,upload,booklist,removebook,viewbook}
+module.exports={savebook,upload,booklist,removebook,viewbook,bookCount,similarBooks,latestBooks}
 
 
