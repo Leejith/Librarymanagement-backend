@@ -28,7 +28,7 @@ var Book_schema = new mongoose.Schema({
     bookstatus:{
         type:String,
         default:"pending",
-        enum:["pending","accepted"]
+        enum:["pending","unavailable"]
     }
 })
 

@@ -26,6 +26,7 @@ route.post("/removebook/:id",book_controller.removebook)
 route.get("/bookcount",book_controller.bookCount)
 route.get("/similarbook/:genre",book_controller.similarBooks)
 route.get("/latestbook",book_controller.latestBooks)
+route.put("/bookstatus/:id",book_controller.Bookstatus)
 
 route.post("/order",stafforder_controller.orderlist)
 route.post("/orderr",studentorder_controller.orderlist)
@@ -34,7 +35,7 @@ route.post("/orderr",studentorder_controller.orderlist)
 route.post("/Savereview",ReviewController.savereview)
 route.get("/reviewlist/:postid",ReviewController.reviewlist)
 
-route.post("/addlike/:Studentid/:bookid",StudentLikeController.AddLike)
-route.get("/getlike/:Studentid",StudentLikeController.getLike)
+route.post("/addlike/:studentid/:bookid",StudentLikeController.AddLike)
+route.get("/getlike/:studentid",StudentLikeController.getLike)
 
 module.exports=route

@@ -34,7 +34,6 @@ const savereview =(req,res)=>{
 
 const reviewlist = async (req, res) => {
     const { postid } = req.params;
-    console.log(postid);
 
     await Review.find( {postid} )
         .populate("studentid","name") 
