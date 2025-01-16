@@ -37,8 +37,8 @@ const reviewlist = async (req, res) => {
     console.log(postid);
 
     await Review.find( {postid} )
-        .populate("studentid", "name") 
-        .populate("staffid", "name")
+        .populate("studentid","name") 
+        .populate("staffid","name")
         .then((result) => {
             res.status(200).json({
                 msg: "Success",

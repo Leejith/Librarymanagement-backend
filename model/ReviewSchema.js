@@ -10,17 +10,17 @@ var ReviewSchema = new mongoose.Schema({
     },
     studentid: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Student", 
-        required: function () {
-            return this.role === "student";
-        },
+        ref: "student", 
+        // required: function () {
+        //     return this.role === "student";
+        // },
     },
     staffid: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Staff", 
-        required: function () {
-            return this.role === "staff";
-        },
+        ref: "staff", 
+        // required: function () {
+        //     return this.role === "staff";
+        // },
     },
     postid: {
         type: mongoose.Schema.Types.ObjectId,
