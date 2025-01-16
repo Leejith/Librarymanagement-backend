@@ -1,10 +1,11 @@
 var StudentLike = require("../model/StudentLinkSchema")
 
 const AddLike = (req, res) => {
-    console.log(req.params.Studentid, req.params.bookid);
+    console.log(req.params.studentid, req.params.bookid);
     let data = new StudentLike({
-        studentid: req.params.Studentid,
+        studentid: req.params.studentid,
         bookid: req.params.bookid,
+        status: true
     });
     data
         .save()
@@ -24,11 +25,10 @@ const AddLike = (req, res) => {
 }
 
 const getLike = async(req, res) => {
-    console.log(req.params.Studentid);
     
-    await StudentLike.find({
-         Studentid: req.params.Studentid
-         })
+    const {studentid} = req.params
+    console.log({studentid});
+    await StudentLike.find({studentid})
         .populate('bookid')
         .then((result) => {
             
@@ -45,6 +45,8 @@ const getLike = async(req, res) => {
             });
         });
 }
+
+
 
 
 

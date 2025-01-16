@@ -10,6 +10,10 @@ const StudentLikeSchema = new mongoose.Schema({
     { type: mongoose.Schema.Types.ObjectId, 
         ref: 'book', 
      },
+     status:{
+        type:Boolean,
+        default:false
+     }
    
 });
 
