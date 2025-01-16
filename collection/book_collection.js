@@ -75,6 +75,7 @@ const viewbook=async(req,res)=>{
 }
 
 
+
 const removebook=(req,res)=>{
     const {id} = req.params
     Book.findByIdAndDelete(id)

@@ -3,12 +3,12 @@ const mongoose = require('mongoose')
 const StudentLikeSchema = new mongoose.Schema({
     studentid: { 
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Student', 
+        ref: 'student', 
        
     },
     bookid: 
     { type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Book', 
+        ref: 'book', 
      },
    
 });
