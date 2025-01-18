@@ -13,6 +13,7 @@ route.post("/savestudent",controller.upload,controller.savestudent)
 route.post("/loginstudent",controller.LoginStudent)
 route.get("/studentlist",controller.StudentList)
 route.get("/studentprofile/:id",controller.Studentprofile)
+route.put("/studentupdate/:id",controller.upload,controller.studentUpdate)
 
 
 route.post("/savestaff",staff_controller.upload,staff_controller.savestaff)
