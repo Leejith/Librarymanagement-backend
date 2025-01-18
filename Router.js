@@ -7,6 +7,7 @@ const stafforder_controller=require("./collection/Bookorder_collection")
 const studentorder_controller=require("./collection/studentorder_collection")
 const ReviewController=require("./collection/ReviewCollection")
 const StudentLikeController=require("./collection/StudentLikeCollection")
+const StudentCartController=require("./collection/StudentCartCollection")
 
 route.post("/savestudent",controller.upload,controller.savestudent)
 route.post("/loginstudent",controller.LoginStudent)
@@ -37,5 +38,11 @@ route.get("/reviewlist/:postid",ReviewController.reviewlist)
 
 route.post("/addlike/:studentid/:bookid",StudentLikeController.AddLike)
 route.get("/getlike/:studentid",StudentLikeController.getLike)
+route.post("/removelike/:studentid/:bookid",StudentLikeController.removeLike)
+
+
+route.post("/addcart/:studentid/:bookid",StudentCartController.AddCart)
+route.post("/removecart/:studentid/:bookid",StudentCartController.removeCart)
+route.get("/getcart/:studentid",StudentCartController.getCart)
 
 module.exports=route
