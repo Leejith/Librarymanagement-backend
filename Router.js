@@ -33,9 +33,15 @@ route.get("/bookcount",book_controller.bookCount)
 route.get("/similarbook/:genre",book_controller.similarBooks)
 route.get("/latestbook",book_controller.latestBooks)
 route.put("/bookstatus/:id",book_controller.Bookstatus)
+route.put("/bookreturnstatus/:id",book_controller.Bookreturnstatus)
 
 route.post("/order",stafforder_controller.orderlist)
 route.post("/orderr",studentorder_controller.orderlist)
+route.get("/vieworderr/:studentid",studentorder_controller.vieworder)
+route.get("/borrowlist",studentorder_controller.borrowdetails)
+route.delete("/returnorder/:id",studentorder_controller.returnorder)
+
+
 
 
 
