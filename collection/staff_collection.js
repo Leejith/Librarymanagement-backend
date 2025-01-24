@@ -97,4 +97,33 @@ const Staffprofile=async(req,res)=>{
   })
 }
 
-module.exports={savestaff,upload,staff_login,stafflist ,Staffprofile}
+const staffForgetPassword = (req, res) => {
+  const { email, newPassword } = req.body;
+
+  Staff.findOne({ email })
+    .then((staff) => {
+      if (!staff) {
+        return res.status(404).json({
+          msg: "Student not found",
+          status: 404,
+        });
+      }
+      staff.password = newPassword; 
+      return staff.save();
+    })
+    .then(() => {
+      res.status(200).json({
+        msg: "Password reset successfully",
+        status: 200,
+      });
+    })
+    .catch((err) => {
+      console.error("Error in password reset:", err);
+      res.status(500).json({
+        msg: "Failed to reset password",
+        status: 500,
+      });
+    });
+};
+
+module.exports={savestaff,upload,staff_login,stafflist ,Staffprofile ,staffForgetPassword}

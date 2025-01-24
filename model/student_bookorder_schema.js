@@ -14,7 +14,7 @@ var studentorder_schema = new mongoose.Schema({
     bookstatus:{
         type:String,
         default:"pending",
-        enum:["pending","accepted","reject"]
+        enum:["pending","unavailable"]
     }
 })
 

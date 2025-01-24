@@ -98,6 +98,9 @@ const StudentList=(req,res)=>{
     })
 }
 const studentUpdate = (req, res) => {
+  console.log(req.body,"kk");
+  console.log(req.file,"ll");
+
   const { id } = req.params; 
   const { name, department, password } = req.body;
 
@@ -133,4 +136,33 @@ const studentUpdate = (req, res) => {
     });
 };
 
-module.exports = { savestudent, upload, LoginStudent,Studentprofile,StudentList,studentUpdate };
+const studentForgetPassword = (req, res) => {
+  const { email, newPassword } = req.body;
+
+  Student.findOne({ email })
+    .then((student) => {
+      if (!student) {
+        return res.status(404).json({
+          msg: "Student not found",
+          status: 404,
+        });
+      }
+      student.password = newPassword; 
+      return student.save();
+    })
+    .then(() => {
+      res.status(200).json({
+        msg: "Password reset successfully",
+        status: 200,
+      });
+    })
+    .catch((err) => {
+      console.error("Error in password reset:", err);
+      res.status(500).json({
+        msg: "Failed to reset password",
+        status: 500,
+      });
+    });
+};
+
+module.exports = { savestudent, upload, LoginStudent,Studentprofile,StudentList,studentUpdate ,studentForgetPassword};
