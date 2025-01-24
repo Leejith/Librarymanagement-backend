@@ -25,12 +25,12 @@ var Book_schema = new mongoose.Schema({
         type:Object
     },
    
-    // bookstatus:{
-    //     type:String,
-    //     default:"pending",
-    //     enum:["pending","unavailable"]
-    // }
-    status: { type: String, enum: ['Available', 'Unavailable'], default: 'Available' }
+    bookstatus:{
+        type:String,
+        default:"pending",
+        enum:["pending","unavailable"]
+    }
+    
 })
 
 module.exports = new mongoose.model("book",Book_schema)
