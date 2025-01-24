@@ -24,6 +24,7 @@ var Student_schema = new mongoose.Schema({
     image:{
         type:Object
     }
+    
 })
 
 module.exports = new mongoose.model("student",Student_schema)
