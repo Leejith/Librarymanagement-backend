@@ -13,7 +13,9 @@ var studentorder_schema = new mongoose.Schema({
     },
     bookstatus:{
         type:String,
+
         default:"unavailable",
+
         enum:["pending","unavailable"]
     }
 })

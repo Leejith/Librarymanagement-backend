@@ -23,6 +23,7 @@ const orderlist=async (req,res)=>{
     })
 }
 
+
 const vieworder=async(req,res)=>{
     const {studentid} = req.params
         console.log({studentid});
@@ -42,7 +43,9 @@ const vieworder=async(req,res)=>{
                     status: 500,
                 });
             });
-}
+=======
+
+
 
 const borrowdetails=async(req,res)=>{
         await Studentorder.find()
