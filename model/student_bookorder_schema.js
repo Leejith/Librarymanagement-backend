@@ -9,12 +9,12 @@ var studentorder_schema = new mongoose.Schema({
     bookid:{
         type:mongoose.Schema.Types.ObjectId,
         required:true,
-        ref:"student"
+        ref:"book"
     },
     bookstatus:{
         type:String,
-        default:"pending",
-        enum:["pending","accepted","reject"]
+        default:"unavailable",
+        enum:["pending","unavailable"]
     }
 })
 

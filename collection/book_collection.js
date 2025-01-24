@@ -179,7 +179,25 @@ const Bookstatus = (req,res) =>{
     })
 }
 
+const Bookreturnstatus = (req,res) =>{
+    const {id} = req.params
+    Book.findByIdAndUpdate(id,{bookstatus:"pending"},{new:true})
+    .then((result)=>{
+        res.status(200).json({
+            msg:"status updated",
+            status:200,
+            data:result
+        })
+    })
+    .catch((err)=>{
+        res.status(500).json({
+            msg:"failed",
+            status:500
+        })
+    })
+}
 
-module.exports={savebook,upload,booklist,removebook,viewbook,bookCount,similarBooks,latestBooks,Bookstatus}
+
+module.exports={savebook,upload,booklist,removebook,viewbook,bookCount,similarBooks,latestBooks,Bookstatus,Bookreturnstatus}
 
 
