@@ -64,6 +64,45 @@ const staff_login = async (req,res)=>{
     }
 }
 
+const staffUpdate = (req, res) => {
+  console.log(req.body,"kk");
+  console.log(req.file,"ll");
+
+  const { id } = req.params; 
+  const { name, department, password } = req.body;
+
+  let updateFields = {
+    name,
+    department,
+    password,
+  };
+
+  if (req.file) {
+    updateFields.image = req.file; 
+  }
+  Staff.findByIdAndUpdate(id, updateFields, { new: true })
+    .then((result) => {
+      if (!result) {
+        return res.status(404).json({
+          msg: "Student not found",
+          status: 404,
+        });
+      }
+      res.status(200).json({
+        msg: "Update successful",
+        status: 200,
+        data: result,
+      });
+    })
+    .catch((err) => {
+      console.error("Error updating staff profile:", err);
+      res.status(500).json({
+        msg: "Update failed",
+        status: 500,
+      });
+    });
+};
+
 const stafflist=(req,res)=>{
     Staff.find()
     .then((result)=>{
@@ -126,4 +165,4 @@ const staffForgetPassword = (req, res) => {
     });
 };
 
-module.exports={savestaff,upload,staff_login,stafflist ,Staffprofile ,staffForgetPassword}
+module.exports={savestaff,upload,staff_login,stafflist ,Staffprofile ,staffForgetPassword,staffUpdate}

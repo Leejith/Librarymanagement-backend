@@ -23,7 +23,9 @@ route.post("/savestaff",staff_controller.upload,staff_controller.savestaff)
 route.post("/stafflogin",staff_controller.staff_login)
 route.get("/stafflist",staff_controller.stafflist)
 route.get("/staffprofile/:id",staff_controller.Staffprofile)
+route.post("/staffupdate/:id",staff_controller.upload,staff_controller.staffUpdate)
 route.put("/staffpassword",staff_controller.staffForgetPassword)
+
 
 route.post("/savebook",book_controller.upload,book_controller.savebook)
 route.get("/booklist",book_controller.booklist)
@@ -35,6 +37,7 @@ route.get("/latestbook",book_controller.latestBooks)
 route.put("/bookstatus/:id",book_controller.Bookstatus)
 route.put("/bookreturnstatus/:id",book_controller.Bookreturnstatus)
 
+
 route.post("/order",stafforder_controller.orderlist)
 route.post("/orderr",studentorder_controller.orderlist)
 route.get("/vieworderr/:studentid",studentorder_controller.vieworder)
@@ -45,13 +48,14 @@ route.get("/borrowedbook",stafforder_controller.borrowdetails)
 route.delete("/returnbook/:id",stafforder_controller.returnorder)
 
 
-
 route.post("/Savereview",ReviewController.savereview)
 route.get("/reviewlist/:postid",ReviewController.reviewlist)
+
 
 route.post("/addlike/:studentid/:bookid",StudentLikeController.AddLike)
 route.get("/getlike/:studentid",StudentLikeController.getLike)
 route.post("/removelike/:studentid/:bookid",StudentLikeController.removeLike)
+
 
 route.post("/staffaddlike/:staffid/:bookid",StaffLikeController.StaffAddLike)
 route.get("/staffgetlike/:staffid",StaffLikeController.StaffgetLike)
