@@ -3,7 +3,7 @@ var Stafforder = require("../model/Bookorder_schema")
 const orderlist=async (req,res)=>{
     console.log(req.body)
     let data = new Stafforder({
-       teacherid: req.body.teacherid,
+       staffid: req.body.staffid,
        bookid: req.body.bookid 
     })
     await data.save()

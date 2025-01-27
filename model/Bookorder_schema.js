@@ -1,7 +1,7 @@
 var mongoose = require("mongoose")
 
 var Bookorder_schema = new mongoose.Schema({
-    teacherid:{
+    staffid:{
         type:mongoose.Schema.Types.ObjectId,
         required:true,
         ref:"staff"
@@ -9,7 +9,7 @@ var Bookorder_schema = new mongoose.Schema({
     bookid:{
         type:mongoose.Schema.Types.ObjectId,
         required:true,
-        ref:"staff"
+        ref:"book"
     },
     bookstatus:{
         type:String,
