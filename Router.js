@@ -40,8 +40,9 @@ route.post("/orderr",studentorder_controller.orderlist)
 route.get("/vieworderr/:studentid",studentorder_controller.vieworder)
 route.get("/borrowlist",studentorder_controller.borrowdetails)
 route.delete("/returnorder/:id",studentorder_controller.returnorder)
-
-
+route.get("/vieworder/:staffid",stafforder_controller.vieworder)
+route.get("/borrowedbook",stafforder_controller.borrowdetails)
+route.delete("/returnbook/:id",stafforder_controller.returnorder)
 
 
 
