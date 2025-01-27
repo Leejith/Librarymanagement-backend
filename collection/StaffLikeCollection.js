@@ -50,7 +50,7 @@ const StaffgetLike =async (req, res) => {
 const StaffremoveLike = (req, res) => {
     const { staffid, bookid } = req.params;
 
-    StudentLike.findOneAndDelete({ staffid, bookid })
+    StaffLike.findOneAndDelete({ staffid, bookid })
         .then((result) => {
             if (!result) {
                 return res.status(400).json({

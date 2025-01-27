@@ -95,15 +95,13 @@ const removebook=(req,res)=>{
 
 const bookCount = async (req, res) => {
     try {
-        // Total number of books
         const totalBooks = await Book.countDocuments();
 
-        // Count of books by category (genre)
         const categoryCount = await Book.aggregate([
             {
                 $group: {
-                    _id: "$genre", // Group by genre
-                    count: { $sum: 1 } // Count the number of books in each genre
+                    _id: "$genre", 
+                    count: { $sum: 1 } 
                 }
             }
         ]);
