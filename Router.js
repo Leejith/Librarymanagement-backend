@@ -17,6 +17,7 @@ route.get("/studentlist",controller.StudentList)
 route.get("/studentprofile/:id",controller.Studentprofile)
 route.post("/studentupdate/:id",controller.upload,controller.studentUpdate)
 route.put("/password",controller.upload,controller.studentForgetPassword)
+route.put("/deactive/:id",controller.ToDeactive)
 
 
 route.post("/savestaff",staff_controller.upload,staff_controller.savestaff)
@@ -25,6 +26,7 @@ route.get("/stafflist",staff_controller.stafflist)
 route.get("/staffprofile/:id",staff_controller.Staffprofile)
 route.post("/staffupdate/:id",staff_controller.upload,staff_controller.staffUpdate)
 route.put("/staffpassword",staff_controller.staffForgetPassword)
+route.put("/deactive/:id",staff_controller.ToDeactive)
 
 
 route.post("/savebook",book_controller.upload,book_controller.savebook)

@@ -21,7 +21,8 @@ const savestaff=async(req,res)=>{
         idno : req.body.idno,
         email : req.body.email,
         password : req.body.password,
-        image : req.file
+        image : req.file,
+        isactive:true
     })
     await data.save()
     .then((result)=>{
@@ -165,4 +166,25 @@ const staffForgetPassword = (req, res) => {
     });
 };
 
-module.exports={savestaff,upload,staff_login,stafflist ,Staffprofile ,staffForgetPassword,staffUpdate}
+const ToDeactive=async(req,res)=>{
+  console.log(req)
+  const staffdata=await Staff.findById(req.params.id)
+  const updatedvalue=!staffdata.isactive
+  await Staff.findByIdAndUpdate(req.params.id,{isactive:updatedvalue},{new:true})
+  .then((result)=>{
+      console.log(result)
+      res.status(200).json({
+          msg:"update successfull",
+          status:200,
+          data: result
+      })
+  })
+  .catch((err)=>{
+      res.status(500).json({
+          msg:"failed",
+          status:500
+      })
+  })
+}
+
+module.exports={savestaff,upload,staff_login,stafflist ,Staffprofile ,staffForgetPassword,staffUpdate,ToDeactive}
