@@ -26,7 +26,7 @@ route.get("/stafflist",staff_controller.stafflist)
 route.get("/staffprofile/:id",staff_controller.Staffprofile)
 route.post("/staffupdate/:id",staff_controller.upload,staff_controller.staffUpdate)
 route.put("/staffpassword",staff_controller.staffForgetPassword)
-route.put("/deactive/:id",staff_controller.ToDeactive)
+route.put("/staffdeactive/:id",staff_controller.ToDeactive)
 
 
 route.post("/savebook",book_controller.upload,book_controller.savebook)
