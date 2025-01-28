@@ -22,6 +22,7 @@ const savestudent = (req, res) => {
     email: req.body.email,
     password: req.body.password,
     image: req.file,
+    isactive:true
   });
   console.log(data);
   data
@@ -165,4 +166,25 @@ const studentForgetPassword = (req, res) => {
     });
 };
 
-module.exports = { savestudent, upload, LoginStudent,Studentprofile,StudentList,studentUpdate ,studentForgetPassword};
+const ToDeactive=async(req,res)=>{
+  console.log(req)
+  const studentdata=await Student.findById(req.params.id)
+  const updatedvalue=!studentdata.isactive
+  await Student.findByIdAndUpdate(req.params.id,{isactive:updatedvalue},{new:true})
+  .then((result)=>{
+      console.log(result)
+      res.status(200).json({
+          msg:"update successfull",
+          status:200,
+          data: result
+      })
+  })
+  .catch((err)=>{
+      res.status(500).json({
+          msg:"failed",
+          status:500
+      })
+  })
+}
+
+module.exports = { savestudent, upload, LoginStudent,Studentprofile,StudentList,studentUpdate ,studentForgetPassword ,ToDeactive};

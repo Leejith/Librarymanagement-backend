@@ -23,6 +23,10 @@ var Staff_schema = new mongoose.Schema({
     },
     image:{
         type:Object
+    },
+    isactive:{
+        type:Boolean,
+        required:true,
     }
 })
 
